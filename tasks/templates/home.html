@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <main>
+        <section class="card card-body">
+            <h1 class="display-1 text-center">DJANGO APP</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id mollitia voluptatem dolorum atque consequatur totam, vitae placeat, cupiditate incidunt rem, adipisci quam iste rerum sit possimus ad obcaecati tempora deleniti.
+            </p>
+            <div class="text-center">
+                <a href="{% url 'signup' %}" class="btn btn-primary">Sign up</a>
+                <a href="{% url 'signin' %}" class="btn btn-primary">Sign in</a>
+            </div>
+        </section>
+    </main>
+    
+    
+    {% endblock %}
+    
+</body>
+</html>

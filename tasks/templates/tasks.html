@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center display-3">Tasks Pending</h2>
+                <ul class="list-group">
+                    {% for task in tasks %}
+                    <li class="list-group-item">
+                        <a href="{% url 'task_detail' task.id %}">
+                            <header class="d-flex justify-content-between">
+                                {% if task.important == True %}
+                                <h1 class="fw-bold text-danger">🚨 {{task.title}}</h1>
+                                {% else %}
+                                <h1 class="fw-bold">{{task.title}}</h1>
+                                {% endif %}
+                            </header>
+                        </a>
+                        <p>{{task.datecompleted|date:'M j Y:i'}}</p>
+                        <p>{{task.description}}</p>
+                        <p>Created by: {{task.user}}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+
+</body>
+
+</html>
